@@ -1,0 +1,68 @@
+{
+    "agentsJson": "0.1.0",
+    "info": {
+        "title": "Roblox Open Cloud API Agent Flows",
+        "version": "0.1.1",
+        "description": "Agentic workflows for interacting with the Roblox Open Cloud API to automate common tasks and operations"
+    },
+    "sources": [
+        {
+            "id": "roblox",
+            "path": "placeholder openapi.yaml or .json raw content link"
+        }
+    ],
+    "overrides": [],
+    "flows": [
+        {
+            "id": "manage_community_join_requests",
+            "title": "Manage Community Join Requests",
+            "description": "Automates accepting/rejecting membership requests for a Roblox Community group.",
+            "actions": [
+                {
+                    "id": "list_community_join_requests",
+                    "sourceId": "roblox",   
+                    "operationId": "Cloud_ListGroupJoinRequests"
+                },
+                {
+                    "id": "accept_community_join_requests",
+                    "sourceId": "roblox",
+                    "operationId": "Cloud_AcceptGroupJoinRequest"
+                }
+            ],
+            "links": [
+                {
+                    "origin": {
+                        "actionId": "list_community_join_requests",
+                        "fieldPath": "response.data.id"
+                    },
+                    "target": {
+                        "actionId": "accept_community_join_requests",
+                        "fieldPath": "parameters.join_request_id"
+                    }
+                }
+            ],
+            "fields": {
+                "parameters": [
+                    {
+                        "name": "join_request_id",
+                        "type": "string",
+                        "description": "The join-request ID.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "success": {
+                        "type": "object",
+                        "properties": {
+
+                        }
+                    },
+                    "example": {
+
+                    }
+                }  
+            },
+            "additionalProperties": false
+        }
+    ]
+}
