@@ -8,23 +8,23 @@
     "sources": [
         {
             "id": "roblox",
-            "path": "placeholder openapi.yaml or .json raw content link"
+            "path": "https://raw.githubusercontent.com/Roblox/creator-docs/refs/heads/main/content/en-us/reference/cloud/cloud.docs.json"
         }
     ],
     "overrides": [],
     "flows": [
         {
-            "id": "manage_community_join_requests",
-            "title": "Manage Community Join Requests",
-            "description": "Automates accepting/rejecting membership requests for a Roblox Community group.",
+            "id": "manage_group_join_requests",
+            "title": "Manage Group Join Requests",
+            "description": "Automates accepting/rejecting membership requests for a Roblox Community Group.",
             "actions": [
                 {
-                    "id": "list_community_join_requests",
+                    "id": "list_group_join_requests",
                     "sourceId": "roblox",   
                     "operationId": "Cloud_ListGroupJoinRequests"
                 },
                 {
-                    "id": "accept_community_join_requests",
+                    "id": "accept_group_join_requests",
                     "sourceId": "roblox",
                     "operationId": "Cloud_AcceptGroupJoinRequest"
                 }
@@ -32,21 +32,27 @@
             "links": [
                 {
                     "origin": {
-                        "actionId": "list_community_join_requests",
+                        "actionId": "list_group_join_requests",
                         "fieldPath": "response.data.id"
                     },
                     "target": {
-                        "actionId": "accept_community_join_requests",
-                        "fieldPath": "parameters.join_request_id"
+                        "actionId": "accept_group_join_requests",
+                        "fieldPath": "parameters.user_id"
                     }
                 }
             ],
             "fields": {
                 "parameters": [
                     {
-                        "name": "join_request_id",
-                        "type": "string",
-                        "description": "The join-request ID.",
+                        "name": "group_id",
+                        "type": "number",
+                        "description": "The ID of the group for which to list join requests.",
+                        "required": true
+                    },
+                    {
+                        "name": "user_id",
+                        "type": "number",
+                        "description": "The ID of the user requesting to join the group.",
                         "required": true
                     }
                 ],

@@ -8,4 +8,10 @@ dependencies = [
     "agentsjson>=0.1.10",
     "openai>=1.63.2",
     "python-dotenv>=1.0.1",
+    "rblx-open-cloud>=2.2.4",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.7",
 ]
