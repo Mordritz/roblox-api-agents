@@ -48,12 +48,6 @@
                         "type": "number",
                         "description": "The ID of the group for which to list join requests.",
                         "required": true
-                    },
-                    {
-                        "name": "user_id",
-                        "type": "number",
-                        "description": "The ID of the user requesting to join the group.",
-                        "required": true
                     }
                 ],
                 "responses": {
