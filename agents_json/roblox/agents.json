@@ -32,6 +32,16 @@
             "links": [
                 {
                     "origin": {
+                        "actionId": "manage_group_join_requests",
+                        "fieldPath": "parameters.group_id"
+                    },
+                    "target": {
+                        "actionId": "list_group_join_requests",
+                        "fieldPath": "parameters.group_id"
+                    }
+                },
+                {
+                    "origin": {
                         "actionId": "list_group_join_requests",
                         "fieldPath": "response.data.id"
                     },
