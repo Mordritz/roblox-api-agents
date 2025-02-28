@@ -43,7 +43,7 @@
                 {
                     "origin": {
                         "actionId": "list_group_join_requests",
-                        "fieldPath": "response.data.id"
+                        "fieldPath": "responses.success.id"
                     },
                     "target": {
                         "actionId": "accept_group_join_requests",
