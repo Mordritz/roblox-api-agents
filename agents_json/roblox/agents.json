@@ -24,7 +24,7 @@
                     "operationId": "Cloud_ListGroupJoinRequests"
                 },
                 {
-                    "id": "accept_group_join_requests",
+                    "id": "accept_group_join_request",
                     "sourceId": "roblox",
                     "operationId": "Cloud_AcceptGroupJoinRequest"
                 }
@@ -42,11 +42,21 @@
                 },
                 {
                     "origin": {
-                        "actionId": "list_group_join_requests",
-                        "fieldPath": "responses.success.id"
+                        "actionId": "manage_group_join_requests",
+                        "fieldPath": "parameters.group_id"
                     },
                     "target": {
-                        "actionId": "accept_group_join_requests",
+                        "actionId": "accept_group_join_request",
+                        "fieldPath": "parameters.group_id"
+                    }
+                },
+                {
+                    "origin": {
+                        "actionId": "list_group_join_requests",
+                        "fieldPath": "responses.success.join_requests.id"
+                    },
+                    "target": {
+                        "actionId": "accept_group_join_request",
                         "fieldPath": "parameters.user_id"
                     }
                 }
@@ -55,7 +65,7 @@
                 "parameters": [
                     {
                         "name": "group_id",
-                        "type": "number",
+                        "type": "integer",
                         "description": "The ID of the group for which to list join requests.",
                         "required": true
                     }
@@ -64,7 +74,15 @@
                     "success": {
                         "type": "object",
                         "properties": {
-
+                            "join_requests": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "integer" }
+                                    }
+                                }
+                            }
                         }
                     },
                     "example": {
