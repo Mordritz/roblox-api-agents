@@ -19,7 +19,8 @@ class Executor(BaseModel):
         from rblxopencloud.http import send_request
         group = Group(kwargs["group_id"], api_key)
         
-        #group.accept_join_request() is broken, so I need to manually call send_request with arguments for now
+        #group.accept_join_request() is broken, so I need to manually call send_request with arguments
+        #this will be fixed in the next version of rblxopencloud, currently tracked as issue #23
         return send_request(
             "POST",
             f"/groups/{group.id}/join-requests/{kwargs["user_id"]}:accept",
