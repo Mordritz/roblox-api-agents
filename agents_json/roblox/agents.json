@@ -68,6 +68,12 @@
                         "type": "integer",
                         "description": "The ID of the group for which to list join requests.",
                         "required": true
+                    },
+                    {
+                        "name": "max_page_size",
+                        "type": "integer",
+                        "description": "The maximum number of join requests to return for a single call.",
+                        "required": false
                     }
                 ],
                 "responses": {
