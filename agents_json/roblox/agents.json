@@ -26,7 +26,8 @@
                 {
                     "id": "accept_group_join_request",
                     "sourceId": "roblox",
-                    "operationId": "Cloud_AcceptGroupJoinRequest"
+                    "operationId": "Cloud_AcceptGroupJoinRequest",
+                    "repeatsOver": "responses.success.join_requests"
                 }
             ],
             "links": [
@@ -63,7 +64,7 @@
                 {
                     "origin": {
                         "actionId": "list_group_join_requests",
-                        "fieldPath": "responses.success.join_requests[0].id"
+                        "fieldPath": "responses.success.join_requests.id"
                     },
                     "target": {
                         "actionId": "accept_group_join_request",
