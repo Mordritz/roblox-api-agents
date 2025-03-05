@@ -27,7 +27,7 @@
                     "id": "accept_group_join_request",
                     "sourceId": "roblox",
                     "operationId": "Cloud_AcceptGroupJoinRequest",
-                    "repeatsOver": "responses.success.join_requests"
+                    "repeatsOver": "list_group_join_requests.responses.success.join_requests"
                 }
             ],
             "links": [
